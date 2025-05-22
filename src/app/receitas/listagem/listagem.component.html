@@ -1,0 +1,57 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="mb-0">Lista de Receitas</h2>
+    <a routerLink="/cadastro" class="btn custom-btn">
+      <i class="bi bi-plus-circle"></i> Novo Cadastro
+    </a>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-striped table-hover table-bordered">
+      <thead class="custom-thead">
+        <tr>
+          <th class="text-center" style="width: 5%">Cód</th>
+          <th style="width: 15%">Descrição</th>
+          <th style="width: 20%">Ingredientes</th>
+          <th class="text-center" style="width: 10%">Quantidade</th>
+          <th class="text-center" style="width: 10%">Tempo</th>
+          <th style="width: 30%">Modo de Preparo</th>
+          <th class="text-center" style="width: 10%">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let receita of receitas">
+          <td class="text-center">{{ receita.id }}</td>
+          <td>{{ receita.descricao }}</td>
+          <td>{{ receita.ingredientes }}</td>
+          <td class="text-center">{{ receita.quantidade }}</td>
+          <td class="text-center">{{ receita.tempo }}</td>
+          <td>{{ receita.modoprep }}</td>
+          <td class="text-center">
+            <a [routerLink]="['/edicao', receita.id]" class="btn btn-sm custom-btn">
+              <i class="bi bi-pencil"></i> Editar
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<style>
+  .custom-thead {
+    background-color: #8FBC8F !important;
+    color: #333; /* Cor do texto para melhor contraste */
+  }
+  
+  .custom-btn {
+    background-color: #8FBC8F !important;
+    border-color: #8FBC8F !important;
+    color: #333 !important;
+  }
+  
+  .custom-btn:hover {
+    background-color: #8FBC8F !important;
+    border-color: #72c672 !important;
+  }
+</style>

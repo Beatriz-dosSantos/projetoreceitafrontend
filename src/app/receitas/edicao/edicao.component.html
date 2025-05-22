@@ -1,0 +1,63 @@
+<div class="container mt-4">
+  <form (ngSubmit)="salvar()" class="custom-form">
+    <div class="row mb-4">
+      <div class="col-md-12">
+        <h2 class="text-center mb-4">{{ receita.id ? 'Editar Receita' : 'Editar Receita' }}</h2>
+      </div>
+    </div>
+
+    <div class="row g-3 mb-4">
+      <div class="col-md-6">
+        <label class="form-label">Descrição:</label>
+        <input type="text" class="form-control" name="descricao" [(ngModel)]="receita.descricao" required>
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Ingredientes:</label>
+        <input type="text" class="form-control" name="ingredientes" [(ngModel)]="receita.ingredientes" required>
+      </div>
+
+      <div class="col-md-3">
+        <label class="form-label">Quantidade:</label>
+        <input type="number" class="form-control" name="quantidade" [(ngModel)]="receita.quantidade" required>
+      </div>
+
+      <div class="col-md-3">
+        <label class="form-label">Tempo (minutos):</label>
+        <input type="number" class="form-control" name="tempo" [(ngModel)]="receita.tempo" required>
+      </div>
+
+      <div class="col-md-12">
+        <label class="form-label">Modo de Preparo:</label>
+        <textarea class="form-control" rows="4" [(ngModel)]="receita.modoprep" name="modoprep" required></textarea>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-end gap-2">
+      <button type="button" class="btn btn-secondary" routerLink="/">Cancelar</button>
+      <button type="submit" class="btn custom-btn">
+        <i class="bi bi-save"></i> Salvar
+      </button>
+    </div>
+  </form>
+</div>
+
+<style>
+  .custom-btn {
+    background-color: #8FBC8F !important;
+    border-color: #8FBC8F !important;
+    color: #333 !important;
+  }
+  
+  .custom-btn:hover {
+    background-color: #8FBC8F !important;
+    border-color: #72c672 !important;
+  }
+
+  .custom-form {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  }
+</style>
