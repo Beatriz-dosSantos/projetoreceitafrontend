@@ -13,7 +13,7 @@ import { Receita } from '../receitas.model';
 })
 export class EdicaoComponent implements OnInit {
   receita: Receita = {
-    id: 0,
+    id: '',
     descricao: '',
     ingredientes: '',
     quantidade: 0,
@@ -21,7 +21,7 @@ export class EdicaoComponent implements OnInit {
     modoprep: '',
   };
 
-  private id!: number;
+  private id!: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -30,12 +30,12 @@ export class EdicaoComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.id = Number(this.route.snapshot.paramMap.get('id'));
+    this.id = String(this.route.snapshot.paramMap.get('id'));
     this.carregarReceita();
   }
 
   carregarReceita(): void {
-    if (!this.id || isNaN(this.id)) {
+    if (!this.id) {
       this.router.navigate(['/listagem']);
       return;
     }
@@ -45,9 +45,8 @@ export class EdicaoComponent implements OnInit {
   }
 
   salvar(): void {
-    if (!this.receita) return;
-
-    this.receitaService
+    if (!this.receita) return; 
+      this.receitaService
       .atualizarReceitas(this.id, this.receita)
       .subscribe(() => {
         this.router.navigate(['/listagem']);

@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
 export class CadastroComponent {
 
   receita: Receita = {
-    id: 0,
+    id: '',
     descricao: '',
     ingredientes: '',
     quantidade: 0,

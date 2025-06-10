@@ -21,16 +21,16 @@ export class ReceitasService {
     return this.http.post<Receita>(this.apiURL, receita);
   }
 
-  buscarReceitas(id: number): Observable<Receita> {
+  buscarReceitas(id: string): Observable<Receita> {
     //↑ metodo GET
     return this.http.get<Receita>(`${this.apiURL}/${id}`);
   }
 
-  atualizarReceitas(id: number, receita: Receita): Observable<Receita> {
+  atualizarReceitas(id: string, receita: Receita): Observable<Receita> {
     //↑ metodo PATCH/PUT
     return this.http.patch<Receita>(`${this.apiURL}/${id}`, receita);
   }
-  deletarAluno(id: number): Observable<void> {
+  deletarAluno(id: string): Observable<void> {
     //↑ metodo DELETE
     return this.http.delete<void>(`${this.apiURL}/${id}`);
   }
